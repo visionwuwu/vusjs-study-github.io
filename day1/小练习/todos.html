@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="container">
+		active: <span>{{ todos.filter(item => !item.status).length }}</span>
+		&nbsp;
+		&nbsp;
+		&nbsp;
+		complete：<span>{{ todos.filter(item => item.status).length }}</span>
+		<div>
+			
+			<p v-for="(item, index) in todos">
+
+				<input type="checkbox" v-model="item.status">
+				<span>{{ item.message }}</span>
+				<button @click="handleRemoveItem(index)">X</button>
+			</p>
+
+		</div>
+		<div>
+			<input type="text" v-model="addMsg" @keydown.enter="handleAddInput(addMsg)"> <button @click="handleAddInput(addMsg)">添加一条计录</button>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="node_modules/vue/dist/vue.min.js"></script>
+
+	<script type="text/javascript">
+		var arr = [
+			{
+				status: true,
+				message: '基督教'
+			},
+			{
+				status: true,
+				message: '度假酒店'
+			},
+			{
+				status: false,
+				message: '给大家看'
+			},
+			{
+				status: true,
+				message: 'hsh'
+			},
+			{
+				status: true,
+				message: '面积的看法和大家'
+			}
+		]
+		new Vue({
+			el: '#container',
+			data: {
+				todos: arr,
+				addMsg: '',
+			},
+			methods: {
+				handleAddInput (addMsg) {
+					if (addMsg) {
+						this.todos.push({
+							status: false,
+							message: addMsg
+						})
+						;this.addMsg = ''
+					}
+				},
+				handleRemoveItem (index) {
+
+					this.todos.splice(index, 1)
+
+				}
+			}
+		})
+	</script>
+</body>
+</html>

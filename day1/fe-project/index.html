@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+	<ul class="container">
+		
+	</ul>
+
+	<script type="text/javascript" src="../node_modules/art-template/lib/template-web.js"></script>
+	<script type="text/javascript" src="../node_modules/jquery/dist/jquery.min.js"></script>
+
+	<script type="text/x-artTemplate" id="tpl">
+
+		{{ each user }}
+            <li>{{$value.age}} ：{{$value.name}}</li>
+        {{ /each }}
+		
+	</script>
+
+	<script type="text/javascript">
+		$(function ($) {
+			$.get('http://localhost:5000/todos', function (res) {
+				console.log(res)
+				var htmlStr = template('tpl', {
+					user: res.data
+				})
+				$('.container').html(htmlStr)
+			})
+
+		})
+	</script>
+</body>
+</html>

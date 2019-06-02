@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="container">
+		<input type="number" v-model.number="number1"><button>+</button><input type="number" v-model.number="number2"><button v-on:click="result = number1 + number2">=</button>结果：<b>{{ result }}</b>
+	</div>
+
+	<script type="text/javascript" src="node_modules/vue/dist/vue.min.js"></script>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#container',
+			data: {
+				number1: '',
+				number2: '',
+				result: ''
+			},
+			methods: {
+
+			}
+		})
+	</script>
+</body>
+</html>

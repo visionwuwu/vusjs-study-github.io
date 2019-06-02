@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div id="tpl">
+		<input type="text" readonly v-model='num'>
+
+		<button v-on:click='add()'>点击</button>
+
+	</div>
+	
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+	
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#tpl',
+			data: {
+				num: 0
+			},
+			methods: {
+				add: function () {
+					this.num++
+				},
+				sub: function () {
+					this.num--
+				}
+			}
+		})
+	</script>
+
+</body>
+</html>

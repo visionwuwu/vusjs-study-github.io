@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<div id="tpl">
+		<p>
+			姓氏：<input type="text" v-model='x'>
+			名字：<input type="text" v-model='m'>
+		</p>
+
+		<h1>我的： {{ x + m }}</h1>
+	</div>
+
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+	
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#tpl',
+			data: {
+				x: '包',
+				m: '武'
+			}
+		})
+	</script>
+</body>
+</html>

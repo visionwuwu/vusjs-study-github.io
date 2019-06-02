@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1.0,
+	user-scalable=no" /> 
+	<title>Document</title>
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		body,html{
+			height: 100%;
+			width: 100%;
+		}
+		header{
+			width: 100%;
+			height: 45px;
+			color: #fff;
+			line-height: 45px;
+			text-align: center;
+			background: #17C5E7;
+		}
+		aside{
+			width: 90px;
+			height: 100%;
+			background: rgba(0,0,0,.6);
+			float: left;
+		}
+		aside a{
+			width: 100%;
+			height: 50px;
+			display: block;
+			line-height: 50px;
+			text-align: center;
+			background: #FF0038;
+			box-sizing: border-box;
+			border: 1px solid #ccc;
+			border-bottom: none;
+			color: #fff;
+			font-size: 14px;
+			text-decoration: none;
+		}
+		aside a:last-of-type{
+			border-bottom: 1px solid #ccc;
+		}
+		main{
+			overflow: hidden;
+			height: 100%;
+			box-sizing: border-box;
+			background: green;
+		}
+	</style>
+</head>
+<body>
+	<header>
+		头部
+	</header>
+
+	<aside>
+		<a href="#/">首页</a>
+		<a href="#/money">理财</a>
+		<a href="#/mine">我的</a>
+	</aside>
+
+	<main id="container">
+		
+	</main>
+	
+	<script type="text/javascript" src="./node_modules/art-template/lib/template-web.js"></script>
+	
+	<script type="text/javascript" src="./node_modules/jquery/dist/jquery.min.js"></script>
+
+	<script type="text/javascript">
+		window.onhashchange = function () {
+			var hash = location.hash.slice(1)
+			console.log(hash)
+
+			if (hash === '/') {
+		        $.get('./friend.html', function (data) {
+		          $('#container').html(data)
+		        })
+		      } 
+		      else if (hash === '/money') {
+		        $.get('./money.html', function (data) {
+		          $('#container').html(data)
+		        })
+		      } 
+		      else if (hash === '/mine') {
+		        $.get('./mine.html', function (data) {
+		          $('#container').html(data)
+		        })
+		      }
+			}
+
+		
+	</script>
+</body>
+</html>

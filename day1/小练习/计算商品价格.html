@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="container">
+		<div>
+			商品价格：<input type="text" v-model="price">
+		</div>
+		<div>
+			商品数量：<button @click="handleSubClick">-</button> <input type="number" v-model="number = number < 0 ? 0 : number"> <button @click="handleAddClick">+</button>
+		</div>
+		<div>
+			商品总价: <b>￥{{ price *  number}}元</b>
+		</div>
+	</div>
+
+	<script type="text/javascript" src="../node_modules/vue/dist/vue.min.js"></script>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#container',
+			data: {
+				price: 1,
+				number: 1,
+			},
+			methods: {
+				handleSubClick () {
+					this.number--
+					// if (this.number < 0) {
+					// 	this.number = 0
+					// }
+					
+				},
+				handleAddClick () {
+					this.number++
+				}
+			}
+		})
+	</script>
+</body>
+</html>

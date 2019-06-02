@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="tpl">
+		<h1> {{ '黄' +  '梦' + '曦'}} </h1>
+		
+		<h1> {{ lv }} </h1>
+
+		<div> {{ message }} </div>
+		
+		<input type="text" v-model='message'>
+	</div>
+
+	<script type="text/javascript" src="node_modules/vue/dist/vue.min.js"></script>
+
+	<script type="text/javascript">
+		var app = new Vue({
+			el: '#tpl',
+			data: {
+				message: 'thank you',
+				lv: '20'
+			}
+		})
+	</script>
+</body>
+</html>

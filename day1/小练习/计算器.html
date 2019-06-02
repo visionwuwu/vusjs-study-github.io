@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+	    <input type="number" v-model.number="number1">
+	    <select v-model="operation">
+	      <option value="0">+</option>
+	      <option value="1">-</option>
+	      <option value="2">*</option>
+	      <option value="3">/</option>
+	    </select>
+	    <input type="number" v-model.number="number2">
+	    <button @click="handleComputerResult(operation)">=</button> <strong> {{ result }} </strong>
+  </div>
+
+  <script type="text/javascript" src="node_modules/vue/dist/vue.min.js"></script>
+
+  <script type="text/javascript">
+  	var app = new Vue({
+  		el: '#app',
+  		data: {
+  			operation: '0',
+  			number1: '',
+  			number2: '',
+  			result: ''
+  		},
+  		methods: {
+  			handleComputerResult (operation) {
+  				switch (operation) {
+  					case '0': 
+  						this.result = this.number1 + this.number2;
+  						break;
+  					case '1': 
+  						this.result = this.number1 - this.number2;
+  						break;
+  					case '2': 
+  						this.result = this.number1 * this.number2;
+  						break;
+  					case '3': 
+  						this.result = this.number1 / this.number2;
+  						break;
+  					default : 
+  						this.result = this.number1 + this.number2;
+  						break;
+  				}
+  			}
+  		}
+  	})
+  </script>
+</body>
+</html>
